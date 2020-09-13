@@ -1,0 +1,127 @@
+<form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="form__data">
+  <div class="mb-20 fieldset__data">
+    <div
+      class="mdc-text-field mdc-text-field--outlined w-100 username mdc-text-field--label-floating"
+      data-mdc-auto-init="MDCTextField"
+    >
+      <input
+        class="mdc-text-field__input"
+        id="email"
+        name="email"
+        type="text"
+        formControlName="email"
+        [ngClass]="{ 'is-invalid': submitted && authFormControls.email.errors }"
+        required
+      />
+      <div
+        class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched"
+      >
+        <div class="mdc-notched-outline__leading"></div>
+        <div class="mdc-notched-outline__notch">
+          <label
+            for="username"
+            class="mdc-floating-label mdc-floating-label--required mdc-floating-label--float-above"
+            ng-class="{'mdc-floating-label--float-above': authForm.email.$viewValue}"
+            >Email</label
+          >
+        </div>
+        <div class="mdc-notched-outline__trailing"></div>
+      </div>
+    </div>
+    <div class="mdc-text-field-helper-line">
+      <div
+        class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
+        *ngIf="submitted && authFormControls.email.errors"
+      >
+        <div *ngIf="authFormControls.email.errors.required">
+          Email is required
+        </div>
+        <div *ngIf="authFormControls.email.errors.pattern">
+          Email not valid.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-20 fieldset__data">
+    <div
+      class="mdc-text-field mdc-text-field--outlined w-100 password mdc-text-field--label-floating"
+      data-mdc-auto-init="MDCTextField"
+    >
+      <input
+        class="mdc-text-field__input"
+        id="password"
+        name="password"
+        type="password"
+        formControlName="password"
+        [ngClass]="{ 'is-invalid': submitted && authFormControls.password.errors }"
+        required
+      />
+      <div
+        class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched"
+      >
+        <div class="mdc-notched-outline__leading"></div>
+        <div class="mdc-notched-outline__notch">
+          <label
+            for="password"
+            class="mdc-floating-label mdc-floating-label--required mdc-floating-label--float-above"
+            ng-class="{'mdc-floating-label--float-above': authForm.password.$viewValue}"
+            >Password</label
+          >
+        </div>
+        <div class="mdc-notched-outline__trailing"></div>
+      </div>
+    </div>
+    <div class="mdc-text-field-helper-line">
+      <div
+        id="password"
+        class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
+        *ngIf="submitted && authFormControls.password.errors"
+      >
+        <div *ngIf="authFormControls.password.errors.required">
+          Password is required
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-container" *ngIf="loginForm">
+    <div class="r__link">
+      create a account? <a routerLink="/signup">Sign Up</a>
+    </div>
+    <button class="mdc-button mdc-button--raised next">
+      <span *ngIf="loading" class="spinner"></span>
+      <div class="mdc-button__ripple"></div>
+      <span class="mdc-button__label">
+        Login
+      </span>
+    </button>
+  </div>
+  <div class="button-container" *ngIf="!loginForm">
+    <div class="r__link">
+      Already have account? <a routerLink="/login">Login</a>
+    </div>
+    <button class="mdc-button mdc-button--raised next">
+      <span *ngIf="loading" class="spinner"></span>
+      <div class="mdc-button__ripple"></div>
+      <span class="mdc-button__label">
+        Signup
+      </span>
+    </button>
+  </div>
+  <div class="mdc-text-field-helper-line" *ngIf="error && error['errors']">
+    <div
+      class="mdc-helper-text mdc-helper-text--validation-msg mdc_alert"
+      *ngFor="let err of error['errors']"
+    >
+      {{err.message}}
+    </div>
+  </div>
+  <div class="mdc-text-field-helper-line" *ngIf="message">
+    <div
+      class="mdc-helper-text mdc-helper-text--validation-msg mdc_info"
+    >
+      {{message}}
+    </div>
+  </div>
+</form>

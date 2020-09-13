@@ -1,0 +1,16 @@
+$mdc-theme-primary: #5D1049;
+$mdc-theme-on-primary: #271a1a;
+$mdc-theme-secondary: #E30425;
+$mdc-theme-on-secondary: #FFFFFF;
+$mdc-theme-surface: #FFFFFF;
+$mdc-theme-on-surface: #000000;
+$mdc-theme-background: #ffffff;
+$mdc-theme-on-background: #000000;
+$color-black: "0,0,0";
+$color-white: "255,255,255";
+/* ANIMATION */
+$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
+$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
+
+$animation-curve-default: $animation-curve-fast-out-slow-in !default;

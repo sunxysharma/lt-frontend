@@ -1,0 +1,41 @@
+@import "../../../../assets/styles/main.scss";
+@import "@material/textfield/mdc-text-field";
+@import "@material/button/mdc-button";
+
+
+.username,
+.password, .mdc_alert, .mdc_info {
+  &:not(.mdc-text-field--invalid) {
+    @include mdc-text-field-label-color($mdc-theme-on-primary);
+  }
+  &.mdc-text-field--focused:not(.mdc-text-field--invalid)  {
+    @include mdc-text-field-label-color($mdc-theme-on-primary);
+  }
+
+  display: flex;
+  width: 300px;
+  margin: 20px auto;
+  justify-content: flex-end;
+  text-align: left;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+  margin: auto;
+}
+
+.button-container button {
+  margin: 3px;
+}
+
+.form__data {
+    width: 300px;
+    float: right;
+    margin: 120px;
+}
+.r__link{
+  font-size: 10px;
+  margin: auto 20px;
+}

@@ -1,0 +1,51 @@
+@import "../../../../assets/styles/main.scss";
+@import "@material/textfield/mdc-text-field";
+@import "@material/button/mdc-button";
+
+.mdc-layout-grid {
+  .mdc-layout-grid__inner {
+    text-align: center;
+  }
+  .border__line {
+    border-bottom: solid 1px gray;
+  }
+
+  .mb__20 {
+    margin-bottom: 20px;
+  }
+  .mdc-layout-grid__cell {
+    text-align: left;
+  }
+
+  .input, .mdc_alert, .mdc_info {
+    &:not(.mdc-text-field--invalid) {
+      @include mdc-text-field-label-color($mdc-theme-on-primary);
+    }
+    &.mdc-text-field--focused:not(.mdc-text-field--invalid) {
+      @include mdc-text-field-label-color($mdc-theme-on-primary);
+    }
+
+    display: flex;
+    width: 400px;
+    margin: 20px auto;
+    justify-content: flex-end;
+    text-align: left;
+  }
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 400px;
+    margin: auto;
+  }
+
+  .button-container button {
+    margin: 3px;
+  }
+
+  .form__data {
+    margin-top: 20px;
+  }
+  .mdc-text-field--outlined {
+    height: 40px;
+  }
+}

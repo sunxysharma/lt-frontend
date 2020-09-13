@@ -1,0 +1,13 @@
+@import "../../../assets/styles/main.scss";
+
+
+.auth {
+  background-color: $mdc-theme-background;
+  color: $mdc-theme-on-background;
+  height: 100vh;
+  background-image: url('../../../assets/images/auth.png');
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 70%;
+  overflow: hidden;
+}

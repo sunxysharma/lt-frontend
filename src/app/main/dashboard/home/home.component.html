@@ -1,0 +1,209 @@
+<div class="mdc-layout-grid" *ngIf="!edit && user">
+  <div class="mdc-layout-grid__inner border__line mb__20" *ngFor="let item of user | keyvalue"> 
+    <div class="mdc-layout-grid__cell">
+     {{item.key}}
+    </div>
+
+    <div class="mdc-layout-grid__cell">
+        {{item.value}}
+    </div>
+  </div>
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell">
+      <button class="mdc-button mdc-button--raised" (click)="editToggle()">
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label">
+          Edit
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="mdc-layout-grid" *ngIf="edit && user">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form__data">
+        <div class="mb-20 fieldset__data">
+        
+          <div
+            class="mdc-text-field mdc-text-field--outlined w-100 input mdc-text-field--label-floating"
+            data-mdc-auto-init="MDCTextField"
+          >
+            <input
+              class="mdc-text-field__input"
+              id="firstname"
+              name="firstname"
+              type="text"
+              formControlName="firstname"
+            />
+            <div
+              class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched"
+            >
+              <div class="mdc-notched-outline__leading"></div>
+              <div class="mdc-notched-outline__notch">
+                <label
+                  for="firstname"
+                  class="mdc-floating-label  mdc-floating-label--float-above"
+                  >First Name</label
+                >
+              </div>
+              <div class="mdc-notched-outline__trailing"></div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="mb-20 fieldset__data">
+          <div
+            class="mdc-text-field mdc-text-field--outlined w-100 input mdc-text-field--label-floating"
+            data-mdc-auto-init="MDCTextField"
+          >
+            <input
+              class="mdc-text-field__input"
+              id="lastname"
+              name="lastname"
+              type="text"
+              formControlName="lastname"
+            />
+            <div
+              class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched"
+            >
+              <div class="mdc-notched-outline__leading"></div>
+              <div class="mdc-notched-outline__notch">
+                <label
+                  for="username"
+                  class="mdc-floating-label  mdc-floating-label--float-above"
+                  >lastname</label
+                >
+              </div>
+              <div class="mdc-notched-outline__trailing"></div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="mb-20 fieldset__data">
+          <div
+            class="mdc-text-field mdc-text-field--outlined w-100 input mdc-text-field--label-floating"
+            data-mdc-auto-init="MDCTextField"
+          >
+            <input
+              class="mdc-text-field__input"
+              id="bio"
+              name="bio"
+              type="text"
+              formControlName="bio"
+            />
+            <div
+              class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched"
+            >
+              <div class="mdc-notched-outline__leading"></div>
+              <div class="mdc-notched-outline__notch">
+                <label
+                  for="username"
+                  class="mdc-floating-label  mdc-floating-label--float-above"
+                  >Bio</label
+                >
+              </div>
+              <div class="mdc-notched-outline__trailing"></div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="mb-20 fieldset__data">
+          <div
+            class="mdc-text-field mdc-text-field--outlined w-100 input mdc-text-field--label-floating"
+            data-mdc-auto-init="MDCTextField"
+          >
+            <input
+              class="mdc-text-field__input"
+              id="country"
+              name="country"
+              type="text"
+              formControlName="country"
+            />
+            <div
+              class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched"
+            >
+              <div class="mdc-notched-outline__leading"></div>
+              <div class="mdc-notched-outline__notch">
+                <label
+                  for="username"
+                  class="mdc-floating-label  mdc-floating-label--float-above"
+                  >Country</label
+                >
+              </div>
+              <div class="mdc-notched-outline__trailing"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-20 fieldset__data">
+          <div
+            class="mdc-text-field mdc-text-field--outlined w-100 input mdc-text-field--label-floating"
+            data-mdc-auto-init="MDCTextField"
+          >
+            <input
+              class="mdc-text-field__input"
+              id="email"
+              name="email"
+              type="text"
+              formControlName="email"
+              required
+            />
+            <div
+              class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched"
+            >
+              <div class="mdc-notched-outline__leading"></div>
+              <div class="mdc-notched-outline__notch">
+                <label
+                  for="username"
+                  class="mdc-floating-label mdc-floating-label--required   mdc-floating-label--float-above"
+                  ng-class="{'mdc-floating-label--float-above': profileForm.email.$viewValue}"
+                  >Email</label
+                >
+              </div>
+              <div class="mdc-notched-outline__trailing"></div>
+            </div>
+          </div>
+          <div class="mdc-text-field-helper-line">
+            <div
+              class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
+              *ngIf="submitted && profileFormControls.email.errors"
+            >
+              <div *ngIf="profileFormControls.email.errors.required">
+                Email is required
+              </div>
+              <div *ngIf="profileFormControls.email.errors.pattern">
+                Email not valid.
+              </div>
+            </div>
+          </div>
+        </div>
+       
+            
+        <div class="button-container">
+          <button class="mdc-button mdc-button--raised">
+            <span *ngIf="loading" class="spinner"></span>
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">
+              Save
+            </span>
+          </button>
+        </div>
+
+
+        <div class="mdc-text-field-helper-line" *ngIf="error && error['errors']">
+          <div
+            class="mdc-helper-text mdc-helper-text--validation-msg mdc_alert"
+            *ngFor="let err of error['errors']"
+          >
+            {{err.message}}
+          </div>
+        </div>
+        <div class="mdc-text-field-helper-line" *ngIf="message">
+          <div
+            class="mdc-helper-text mdc-helper-text--validation-msg mdc_info"
+          >
+            {{message}}
+          </div>
+        </div>
+      </form>
+      
+</div>

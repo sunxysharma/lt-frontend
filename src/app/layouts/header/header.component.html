@@ -1,0 +1,24 @@
+<header class="mdc-top-app-bar app-bar" id="app-bar">
+  <div class="mdc-top-app-bar__row">
+    <!-- title -->
+    <h3 class="mdc-drawer__title" >
+      <a class="link" routerLink="/dashboard/home">Dashboard</a>
+    </h3>
+    <section
+      class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+      role="toolbar"
+    >
+      <!-- profile menu -->
+      <div class="mdc-menu-surface--anchor">
+        <button
+          data-mdc-auto-init="MDCRipple"
+          class="mdc-button rounded mdc-button--outlined mdc-button--raised next w-100 "
+          (click)="signOut()">
+        <div class="mdc-button__ripple"></div>
+        <span class="mdc-button__label">Logout</span>          
+        </button>
+      
+      </div>
+    </section>
+  </div>
+</header>

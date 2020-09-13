@@ -1,0 +1,67 @@
+<form [formGroup]="verifyForm" (ngSubmit)="onSubmit()" class="form__data">
+  <div class="mb-20 fieldset__data">
+    <div
+      class="mdc-text-field mdc-text-field--outlined w-100 otp mdc-text-field--label-floating"
+      data-mdc-auto-init="MDCTextField"
+    >
+      <input
+        class="mdc-text-field__input"
+        id="otp"
+        name="otp"
+        type="text"
+        formControlName="otp"
+        [ngClass]="{ 'is-invalid': submitted && verifyFormControls.otp.errors }"
+        required
+      />
+      <div
+        class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched"
+      >
+        <div class="mdc-notched-outline__leading"></div>
+        <div class="mdc-notched-outline__notch">
+          <label
+            for="otp"
+            class="mdc-floating-label mdc-floating-label--required mdc-floating-label--float-above"
+            ng-class="{'mdc-floating-label--float-above': authForm.email.$viewValue}"
+            >OTP</label
+          >
+        </div>
+        <div class="mdc-notched-outline__trailing"></div>
+      </div>
+    </div>
+    <div class="mdc-text-field-helper-line">
+      <div
+        class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
+        *ngIf="submitted && verifyFormControls.otp.errors"
+      >
+        <div *ngIf="verifyFormControls.otp.errors.required">
+          OTP is required
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="mdc-button mdc-button--raised next">
+      <span *ngIf="loading" class="spinner"></span>
+      <div class="mdc-button__ripple"></div>
+      
+      <span class="mdc-button__label">
+        verify
+      </span>
+    </button>
+  </div>
+
+  <div class="mdc-text-field-helper-line" *ngIf="error && error['errors']">
+    <div
+      class="mdc-helper-text mdc-helper-text--validation-msg mdc_alert"
+      *ngFor="let err of error['errors']"
+    >
+      {{err.message}}
+    </div>
+  </div>
+  <div class="mdc-text-field-helper-line" *ngIf="message">
+    <div class="mdc-helper-text mdc-helper-text--validation-msg mdc_info">
+      {{message}}
+    </div>
+  </div>
+</form>
