@@ -8,23 +8,23 @@ import { PageNotFoundComponent } from './main/shared/page-not-found/page-not-fou
 
 const routes: Routes = [
   {
+    path: 'dashboard',
+    canActivate: [AuthGuard],
+    component: DashboardComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./main/dashboard/dashboard.module').then(m => m.DashboardModule)
+      }
+    ]
+  },
+  {
     path: '',
     component: AuthComponent,
     children: [
       {
         path: '',
         loadChildren: () => import('./main/auth/auth.module').then(m => m.AuthModule)
-      }
-    ]
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [AuthGuard],
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./main/dashboard/dashboard.module').then(m => m.DashboardModule)
       }
     ]
   },

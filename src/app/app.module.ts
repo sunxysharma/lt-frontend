@@ -12,6 +12,7 @@ import { appInitializer } from './helpers/app.initializer';
 import { AuthenticationService } from './services/authentication.service';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { AuthGuard } from './helpers/auth.guard';
 
 
 @NgModule({

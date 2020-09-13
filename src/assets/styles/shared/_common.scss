@@ -49,3 +49,15 @@ body {
   border-bottom-color: #07d;
   animation: spinner .8s ease infinite;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .form__data{
+    width: auto !important; 
+     float: none !important; 
+    margin: auto !important;
+  }
+  .input,.mdc_alert, .mdc_info , .button-container {
+    width: auto !important;
+  }
+}

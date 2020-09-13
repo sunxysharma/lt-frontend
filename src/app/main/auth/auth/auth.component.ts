@@ -31,6 +31,11 @@ export class AuthComponent implements OnInit  {
   }
 
   ngOnInit(): void {
+    const {token} = this.authenticationService.userValue || {}
+    if (token) {
+      this.router.navigate(['/dashboard','home']);
+    }
+
     this.authForm = this.formBuilder.group({
       email: ["", Validators.required],
       password: ["", Validators.required],
@@ -80,6 +85,8 @@ export class AuthComponent implements OnInit  {
   onSubmit() {
     this.submitted = true;
     if (this.authForm.invalid) {
+      this.authForm.markAsTouched();
+      this.authForm.markAsPristine();
       return;
     }
     this.loading = true;

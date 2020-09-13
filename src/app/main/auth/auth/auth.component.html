@@ -2,7 +2,7 @@
   <div class="mb-20 fieldset__data">
     <div
       class="mdc-text-field mdc-text-field--outlined w-100 username mdc-text-field--label-floating"
-      data-mdc-auto-init="MDCTextField"
+      data-mdc-auto-init="MDCTextField"  [ngClass]="{ 'mdc-text-field--invalid': submitted && authFormControls.email.errors }"
     >
       <input
         class="mdc-text-field__input"
@@ -46,7 +46,8 @@
   <div class="mb-20 fieldset__data">
     <div
       class="mdc-text-field mdc-text-field--outlined w-100 password mdc-text-field--label-floating"
-      data-mdc-auto-init="MDCTextField"
+      data-mdc-auto-init="MDCTextField" 
+      [ngClass]="{ 'mdc-text-field--invalid': submitted && authFormControls.password.errors }"
     >
       <input
         class="mdc-text-field__input"

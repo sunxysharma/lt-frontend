@@ -4,13 +4,13 @@ import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
   {
+    path: "home",
+    component: HomeComponent,
+  },
+  {
     path: "",
     redirectTo: "/dashboard/home",
     pathMatch: "full",
-  },
-  {
-    path: "home",
-    component: HomeComponent,
   }
 ];
 

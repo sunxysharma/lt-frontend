@@ -69,7 +69,7 @@
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
                 <label
-                  for="username"
+                  for="lastname"
                   class="mdc-floating-label  mdc-floating-label--float-above"
                   >lastname</label
                 >
@@ -97,7 +97,7 @@
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
                 <label
-                  for="username"
+                  for="bio"
                   class="mdc-floating-label  mdc-floating-label--float-above"
                   >Bio</label
                 >
@@ -125,7 +125,7 @@
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
                 <label
-                  for="username"
+                  for="country"
                   class="mdc-floating-label  mdc-floating-label--float-above"
                   >Country</label
                 >
@@ -137,7 +137,7 @@
         <div class="mb-20 fieldset__data">
           <div
             class="mdc-text-field mdc-text-field--outlined w-100 input mdc-text-field--label-floating"
-            data-mdc-auto-init="MDCTextField"
+            data-mdc-auto-init="MDCTextField" [ngClass]="{ 'mdc-text-field--invalid': submitted && profileFormControls.email.errors }"
           >
             <input
               class="mdc-text-field__input"
@@ -145,6 +145,7 @@
               name="email"
               type="text"
               formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && profileFormControls.email.errors }"
               required
             />
             <div
@@ -153,7 +154,7 @@
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
                 <label
-                  for="username"
+                  for="email"
                   class="mdc-floating-label mdc-floating-label--required   mdc-floating-label--float-above"
                   ng-class="{'mdc-floating-label--float-above': profileForm.email.$viewValue}"
                   >Email</label
@@ -162,7 +163,7 @@
               <div class="mdc-notched-outline__trailing"></div>
             </div>
           </div>
-          <div class="mdc-text-field-helper-line">
+          <!-- <div class="mdc-text-field-helper-line">
             <div
               class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
               *ngIf="submitted && profileFormControls.email.errors"
@@ -174,7 +175,7 @@
                 Email not valid.
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
        
             

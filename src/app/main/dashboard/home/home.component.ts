@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   message: string;
   error: Object;
   loading = false;
+  submitted = false;
   edit = false;
   constructor(
     private userService: UserService,
@@ -51,12 +52,13 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loading = true;
+    this.submitted =true;
     const user = { ...this.profileForm.value };
     delete user.id;
     if (this.profileForm.invalid) {
       return;
     }
+    this.loading = true;
     this.userService.updateProfile(user).subscribe({
       next: (data) => {
         this.message = data?.message ?? "";
