@@ -4,7 +4,8 @@ https://ltrxfront.web.app/
 
 ## Documentation
 
-## Emphasis
+
+## About our platform
 
 ```no-highlight
 This app is fully managed by Angular framework,
@@ -12,7 +13,7 @@ demonstrating a fully functional dashboard for IT
 corporates i'e co-working platform.
 ```
 
-## Tables
+## Structure of Application
 This is the basic layout structure of this App .
 
 ```no-highlight
