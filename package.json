@@ -20,7 +20,7 @@
     "@material/textfield": "^7.0.0",
     "material-components-web": "^7.0.0",
     "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
+    "tslib": "^2.0.2",
     "zone.js": "~0.11.1"
   },
   "devDependencies": {
